@@ -1,0 +1,35 @@
+import java.util.*;
+interface vehicleone{
+       Scanner s = new Scanner(System.in);
+       
+	int  speed1=s.nextInt();
+	public void distance1();
+}
+
+interface vehicletwo{
+     Scanner s = new Scanner(System.in);
+	int speed2=s.nextInt();
+	public void distance2();
+}
+
+class Vehicle  implements vehicleone,vehicletwo{
+	public void distance1(){
+               System.out.println("enter speed1");
+		int  distance1=speed1*10; 
+		System.out.println("distance travelled in 10 hrs "+distance1);
+	}
+	public void distance2(){
+              System.out.println("enter speed2");
+		int distance2=speed2*10;
+               System.out.println("distance travelled in 10 hrs  "+distance2);
+	}
+}
+
+class MultipleInheritance{
+	public static void main(String args[]){
+               Vehicle obj=new Vehicle();
+		System.out.println("Vehicle");
+		obj.distance1();
+		obj.distance2();
+	}
+}
