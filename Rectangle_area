@@ -1,0 +1,22 @@
+import java.util.*;
+public class Shape 
+{
+    
+Scanner s=new Scanner(System.in);
+int length=s.nextInt();
+int breadth=s.nextInt();
+}
+public class Rectangle extends Shape
+{
+    int area;
+    public void calculateArea()
+    {
+        area = length*breadth;
+    }
+    public static void main(String args[])
+    {  Rectangle r = new Rectangle();
+        r.calculateArea();
+        System.out.println("The Area of rectangle of length \""
+                +r.length+"\" and breadth \""+r.breadth+"\" is \""+r.area+"\"");
+    }
+}
