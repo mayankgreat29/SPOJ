@@ -1,0 +1,37 @@
+import java.util.*;
+import java.io.*;
+class MyException extends Exception
+{
+ MyException(String s)
+{
+ super(s);
+}
+}
+class TestMyException
+{
+ public static void main(String args[])
+{
+ Scanner s= new Scanner(System.in);
+ int x= s.nextInt();
+ int y= s.nextInt();
+ try
+{
+ float z=(float)x/(float)y;
+ if(z<0.01)
+{
+ throw new MyException("No is too small");
+}
+else
+ System.out.println("quotient is "+z);
+}
+catch(MyException e)
+{
+ System.out.println("caught my exception");
+ System.out.println(e.getMessage());
+}
+finally
+{ 
+ System.out.println("I will be execued always");
+}
+}
+}
