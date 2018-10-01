@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    while(1)
+    {
+        long int n;
+        cin>>n;
+        if(n==-1)return 0;
+        
+        if(n==0)
+        {
+            cout<<0<<endl;
+            continue;
+        }
+
+        pair<long int,long int> p[n+1];
+        p[0].first = p[0].second = -1;
+
+        for(long int i=1;i<=n;i++)
+        {
+            cin>>p[i].second>>p[i].first;
+        }
+
+        sort(p,p+n+1);
+
+        int dp[n+1];
+        fill(dp,dp+n+1,0);
+        dp[0]=1;
+        for(long int i=1;i<=n;i++)
+        {
+            pair<long int,long int>aux;
+            aux.first = p[i].second;
+            aux.second = p[i].second;
+
+            long int ind1 = upper_bound(p,p+n+1,aux) - p -1;
+            long int tmp1 = dp[ind1];
+            long int tmp2 = dp[i-1];
+
+            dp[i] = (tmp1 + tmp2)%100000000;
+        }
+
+        long int ans = dp[n]-1 + 100000000;
+        int arr[8];
+        int i=7;
+        while(i>=0)
+        {
+            arr[i]=ans%10;
+            ans/=10;
+            i--;
+        }
+        for(int i=0;i<8;i++)cout<<arr[i];
+        cout<<endl;
+    }
+}
+
